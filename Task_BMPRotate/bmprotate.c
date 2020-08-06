@@ -1,4 +1,7 @@
 #include <stdio.h>
+typedef unsigned char BYTE;
+typedef unsigned short WORD;
+typedef unsigned long DWORD;
 
 typedef struct tagBitMapFileHeader{
   WORD bfType;//"BM"이라는 글자가 설정됨
@@ -10,14 +13,14 @@ typedef struct tagBitMapFileHeader{
 
 typedef struct tagBitMapInfoHeader{
   DWORD bitSize; //구조체의 크기
-  LONG bitWidth;//비트맵의 가로 길이
-  LONG bitHeight;//비트맵의 세로 길이
+  long bitWidth;//비트맵의 가로 길이
+  long bitHeight;//비트맵의 세로 길이
   WORD bitPlanes;//plane 수(1로 설정)
   WORD bitCount;//한 픽셀당 비트수
   DWORD bitCompression;// 압축 유무 플래그
   DWORD bitSizeImage;//그림 데이터의 크기
-  LONG bitXPixPerMeter;//한 픽셀당 가로 미터
-  LONG bitYPixPerMeter;//한 픽셀당 세로 미터
+  long bitXPixPerMeter;//한 픽셀당 가로 미터
+  long bitYPixPerMeter;//한 픽셀당 세로 미터
   DWORD bitColorUsed;//그림에서 실제 사용되는 컬러 수
   DWORD bitColorImportant;//중요하게 사용되는 컬러
 }bitmapinfoheader;
@@ -31,7 +34,7 @@ typedef struct tagRGBQUAD{
 
 int main(){
   FILE *file;
-  file=open("sample.bmp",0_RDONLY);
+  file=fopen("sample.bmp","rb");
   if(file=NULL){
     printf("No Image File");
     return;
