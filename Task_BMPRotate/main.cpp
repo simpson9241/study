@@ -19,7 +19,7 @@ void rotation(int **InputImage,int **OutputImage, double Degree, int Width, int 
     for(x=0;x<Width;x++){
       original_x=(int)(xcenter+((double)y-ycenter)*ss+((double)x-xcenter)*cc);
       original_y=(int)(ycenter+((double)y-ycenter)*cc-((double)x-xcenter)*ss);
-      pixel=0;
+      pixel=0;//빈 공간은 검정으로 채움
 
       if((original_y>=0&&original_y<Height)&&(original_x>=0&&original_x<Width))
         pixel=InputImage[original_y][original_x];
@@ -33,12 +33,13 @@ void rotation(int **InputImage,int **OutputImage, double Degree, int Width, int 
 int main()
 {
     // 컬러
-    ImageKind ImageCharacteristic1 = InitializeImageKind();
+    ImageKind ImageCharacteristic1 = InitializeImageKind();//이미지 형식에 관한 정보를 받을 변수 생성
     // ImageKind ImageCharacteristic2 = InitializeImageKind();
 
     int **Image = BMPtoMatrix("Annick.bmp", ImageCharacteristic1);//Input
     // int **Image2 = BMPtoMatrix("Annick.bmp", ImageCharacteristic1);
 
+    //받아온 이미지를 RGB 각각으로 나누는 작업
     int **Image_R=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
     int **Image_G=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
     int **Image_B=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
@@ -55,17 +56,20 @@ int main()
       }
     }
 
+
+    //Output 생성
     int **Image2= DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width*3);
 
     int **Image2_R=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
     int **Image2_G=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
     int **Image2_B=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
 
+    //RGB 각각 Rotation 함수 적용
     rotation(Image_R,Image2_R,270,ImageCharacteristic1->Width,ImageCharacteristic1->Height);
     rotation(Image_G,Image2_G,270,ImageCharacteristic1->Width,ImageCharacteristic1->Height);
     rotation(Image_B,Image2_B,270,ImageCharacteristic1->Width,ImageCharacteristic1->Height);
 
-
+    //RGB 합치는 작업
     for(i=0;i<ImageCharacteristic1->Height;i++){
       for(j=0;j<ImageCharacteristic1->Width*3;j++){
         if(j%3==0){
