@@ -16,7 +16,7 @@ http://blog.naver.com/PostView.nhn?blogId=virapasas&logNo=130162830476&parentCat
 기본적으로 파일은 24비트 bmp 파일이어야 합니다.
 <br>
 Makefile 파일을 만들어놨기 때문에, 해당 경로로 가셔서 아래의 명령어를 순차적으로 실행하시면 됩니다.
-<br>
+<br><br>
 1.make test
 <br>
 2../test
