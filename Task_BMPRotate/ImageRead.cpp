@@ -1,17 +1,5 @@
 #include "ImageRead.h"
 
-int Jegop(int mit, int n)
-{
-    int output;
-
-    if (n == 0)
-        return output = 1;
-    else if (n == 1)
-        return output = mit;
-    else
-        return output = mit*Jegop(mit, n-1);
-}
-
 int *PointerInteger(int x)
 {
     int *Output;
