@@ -1,6 +1,3 @@
-// A. D. VIII EID. IAN.
-// S. A. Z. P. L. E.
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "ImageRead.h"
@@ -44,7 +41,7 @@ typedef struct
 	BYTE rgb_Blue;
 	BYTE rgb_Green;
 	BYTE rgb_Red;
-	BYTE rgb_Reserved1; 
+	BYTE rgb_Reserved1;
 } RGB_QUAD;
 
 #pragma pack(pop)
@@ -65,20 +62,3 @@ int **BMPtoMatrix(const char *BMP_FileName, ImageKind BMPImageKind);
 
 // Matrix -> BMP 이미지
 FILE *MatrixtoBMP(const char *BMP_FileName, int **Matrix, ImageKind BMPImageKind);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

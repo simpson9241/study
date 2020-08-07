@@ -27,7 +27,6 @@ void rotation(int **InputImage,int **OutputImage, double Degree, int Width, int 
 
     }
   }
-
 }
 
 int main()

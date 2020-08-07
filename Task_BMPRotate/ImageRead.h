@@ -1,6 +1,3 @@
-// S. A. Z. P. L. E.
-// A. D. III. CH. DEC. MMXII
-
 #ifndef DitheringProjectus_ImageRead_h
 #define DitheringProjectus_ImageRead_h
 
