@@ -21,7 +21,7 @@ void rotation(int **InputImage,int **OutputImage, double Degree, int Width, int 
   for(y=0;y<Height;y++){
     for(x=0;x<Width;x++){
       original_x=(int)(xcenter+((double)y-ycenter)*ss+((double)x-xcenter)*cc);
-      original_y=(int)(ycenter+((double)y-ycenter)*cc+((double)x-xcenter)*ss);
+      original_y=(int)(ycenter+((double)y-ycenter)*cc-((double)x-xcenter)*ss);
       pixel=0;
 
       if((original_y>=0&&original_y<Height)&&(original_x>=0&&original_x<Width))
@@ -30,18 +30,58 @@ void rotation(int **InputImage,int **OutputImage, double Degree, int Width, int 
 
     }
   }
+
 }
 
 int main()
 {
     // 컬러
     ImageKind ImageCharacteristic1 = InitializeImageKind();
-    ImageKind ImageCharacteristic2 = InitializeImageKind();
+    // ImageKind ImageCharacteristic2 = InitializeImageKind();
 
-    int **Image = BMPtoMatrix("Annick.bmp", ImageCharacteristic1);
+    int **Image = BMPtoMatrix("Annick.bmp", ImageCharacteristic1);//Input
     // int **Image2 = BMPtoMatrix("Annick.bmp", ImageCharacteristic1);
+
+    int **Image_R=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
+    int **Image_G=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
+    int **Image_B=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
+    int i,j;
+    for(i=0;i<ImageCharacteristic1->Height;i++){
+      for(j=0;j<ImageCharacteristic1->Width*3;j++){
+        if(j%3==0){
+          Image_R[i][j/3]=Image[i][j];
+        }else if(j%3==1){
+          Image_G[i][j/3]=Image[i][j];
+        }else{
+          Image_B[i][j/3]=Image[i][j];
+        }
+      }
+    }
+
     int **Image2= DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width*3);
-    rotation(Image,Image2,90,ImageCharacteristic1->Width*3,ImageCharacteristic1->Height);
+
+    int **Image2_R=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
+    int **Image2_G=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
+    int **Image2_B=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
+
+    rotation(Image_R,Image2_R,270,ImageCharacteristic1->Width,ImageCharacteristic1->Height);
+    rotation(Image_G,Image2_G,270,ImageCharacteristic1->Width,ImageCharacteristic1->Height);
+    rotation(Image_B,Image2_B,270,ImageCharacteristic1->Width,ImageCharacteristic1->Height);
+
+
+    for(i=0;i<ImageCharacteristic1->Height;i++){
+      for(j=0;j<ImageCharacteristic1->Width*3;j++){
+        if(j%3==0){
+          Image2[i][j]=Image2_R[i][j/3];
+        }else if(j%3==1){
+          Image2[i][j]=Image2_G[i][j/3];
+        }else{
+          Image2[i][j]=Image2_B[i][j/3];
+        }
+      }
+    }
+
+    // rotation(Image,Image2,90,ImageCharacteristic1->Width*3,ImageCharacteristic1->Height);
     // int **Image_Monotonic = DoublePointerInteger(ImageCharacteristic1->Height, ImageCharacteristic1->Width);
 
     // 컬러 이미지 -> 흑백 이미지 만들기
@@ -54,7 +94,7 @@ int main()
     // ImageCharacteristic2->Height = ImageCharacteristic1->Height;
     // ImageCharacteristic2->Kind = Monotonic;
     // 컬러저장
-    FILE *output1 = MatrixtoBMP("Annick_color.bmp", Image2, ImageCharacteristic1); fclose(output1);
+    FILE *output1 = MatrixtoBMP("Annick_result.bmp", Image2, ImageCharacteristic1); fclose(output1);//Output
     // 흑백저장
     // FILE *output2 = MatrixtoBMP("Annick_monotonic.bmp", Image_Monotonic, ImageCharacteristic2); fclose(output2);
 }

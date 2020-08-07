@@ -9,4 +9,4 @@ BMPreading.o: BMPreading.cpp
 all: test
 clean:
 	rm -f *.o test
-	rm -f Annick_color.bmp
+	rm -f Annick_result.bmp
