@@ -39,8 +39,9 @@ int main()
     ImageKind ImageCharacteristic2 = InitializeImageKind();
 
     int **Image = BMPtoMatrix("Annick.bmp", ImageCharacteristic1);
-    int **Image2= BMPtoMatrix("Annick.bmp", ImageCharacteristic2);
-    rotation(Image,Image2,90,ImageCharacteristic1->Width,ImageCharacteristic1->Height);
+    // int **Image2 = BMPtoMatrix("Annick.bmp", ImageCharacteristic1);
+    int **Image2= DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width*3);
+    rotation(Image,Image2,90,ImageCharacteristic1->Width*3,ImageCharacteristic1->Height);
     // int **Image_Monotonic = DoublePointerInteger(ImageCharacteristic1->Height, ImageCharacteristic1->Width);
 
     // 컬러 이미지 -> 흑백 이미지 만들기
@@ -53,7 +54,7 @@ int main()
     // ImageCharacteristic2->Height = ImageCharacteristic1->Height;
     // ImageCharacteristic2->Kind = Monotonic;
     // 컬러저장
-    FILE *output1 = MatrixtoBMP("Annick_color.bmp", Image2, ImageCharacteristic2); fclose(output1);
+    FILE *output1 = MatrixtoBMP("Annick_color.bmp", Image2, ImageCharacteristic1); fclose(output1);
     // 흑백저장
     // FILE *output2 = MatrixtoBMP("Annick_monotonic.bmp", Image_Monotonic, ImageCharacteristic2); fclose(output2);
 }
