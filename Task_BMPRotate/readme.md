@@ -21,7 +21,7 @@ Makefile 파일을 만들어놨기 때문에, 해당 경로로 가셔서 아래�
 <br>
 2../test
 <br>
-3.(.o 파일 및 생성된 테스트 파일 삭제)make clean
+3.make clean(.o 파일 및 생성된 테스트 파일 삭제)
 <br><br>
 실제로 돌아가는 코드는 총 3개의 cpp 파일로 구성되어 있고, main 함수는 main.cpp에, 그리고 필요한 함수들은 BMPreading.cpp 와 ImageRead.cpp 에 구현되어있습니다.
 <br><br>
