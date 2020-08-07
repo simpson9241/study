@@ -1,6 +1,3 @@
-// A. D. VIII EID. IAN.
-// S. A. Z. P. L. E.
-
 #include <iostream>
 #include <math.h>
 #include "ImageRead.h"
