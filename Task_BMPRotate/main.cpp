@@ -82,7 +82,6 @@ int main()
       }
     }
 
-    // rotation(Image,Image2,90,ImageCharacteristic1->Width*3,ImageCharacteristic1->Height);
     // int **Image_Monotonic = DoublePointerInteger(ImageCharacteristic1->Height, ImageCharacteristic1->Width);
 
     // 컬러 이미지 -> 흑백 이미지 만들기
@@ -94,6 +93,7 @@ int main()
     // ImageCharacteristic2->Width = ImageCharacteristic1->Width;
     // ImageCharacteristic2->Height = ImageCharacteristic1->Height;
     // ImageCharacteristic2->Kind = Monotonic;
+
     // 컬러저장
     FILE *output1 = MatrixtoBMP("Annick_result.bmp", Image2, ImageCharacteristic1); fclose(output1);//Output
     // 흑백저장
