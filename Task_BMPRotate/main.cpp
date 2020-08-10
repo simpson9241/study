@@ -29,6 +29,46 @@ void rotation(int **InputImage,int **OutputImage, double Degree, int Width, int 
   }
 }
 
+void rotation_24bit(int **InputImage,int **OutputImage, double Degree, int Width, int Height){
+  //받아온 이미지를 RGB 각각으로 나누는 작업
+  int **InputImage_R=DoublePointerInteger(Height,Width);
+  int **InputImage_G=DoublePointerInteger(Height,Width);
+  int **InputImage_B=DoublePointerInteger(Height,Width);
+  int i,j;
+  for(i=0;i<Height;i++){
+    for(j=0;j<Width*3;j++){
+      if(j%3==0){
+        InputImage_R[i][j/3]=InputImage[i][j];
+      }else if(j%3==1){
+        InputImage_G[i][j/3]=InputImage[i][j];
+      }else{
+        InputImage_B[i][j/3]=InputImage[i][j];
+      }
+    }
+  }
+
+  int **OutputImage_R=DoublePointerInteger(Height,Width);
+  int **OutputImage_G=DoublePointerInteger(Height,Width);
+  int **OutputImage_B=DoublePointerInteger(Height,Width);
+
+  rotation(InputImage_R,OutputImage_R,270,Width,Height);
+  rotation(InputImage_G,OutputImage_G,270,Width,Height);
+  rotation(InputImage_B,OutputImage_B,270,Width,Height);
+
+
+  for(i=0;i<Height;i++){
+    for(j=0;j<Width*3;j++){
+      if(j%3==0){
+        OutputImage[i][j]=OutputImage_R[i][j/3];
+      }else if(j%3==1){
+        OutputImage[i][j]=OutputImage_G[i][j/3];
+      }else{
+        OutputImage[i][j]=OutputImage_B[i][j/3];
+      }
+    }
+  }
+}
+
 int main()
 {
     // 컬러
@@ -38,49 +78,10 @@ int main()
     int **Image = BMPtoMatrix("Annick.bmp", ImageCharacteristic1);//Input
     // int **Image2 = BMPtoMatrix("Annick.bmp", ImageCharacteristic1);
 
-    //받아온 이미지를 RGB 각각으로 나누는 작업
-    int **Image_R=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
-    int **Image_G=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
-    int **Image_B=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
-    int i,j;
-    for(i=0;i<ImageCharacteristic1->Height;i++){
-      for(j=0;j<ImageCharacteristic1->Width*3;j++){
-        if(j%3==0){
-          Image_R[i][j/3]=Image[i][j];
-        }else if(j%3==1){
-          Image_G[i][j/3]=Image[i][j];
-        }else{
-          Image_B[i][j/3]=Image[i][j];
-        }
-      }
-    }
-
-
     //Output 생성
     int **Image2= DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width*3);
 
-    int **Image2_R=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
-    int **Image2_G=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
-    int **Image2_B=DoublePointerInteger(ImageCharacteristic1->Height,ImageCharacteristic1->Width);
-
-    //RGB 각각 Rotation 함수 적용
-    rotation(Image_R,Image2_R,270,ImageCharacteristic1->Width,ImageCharacteristic1->Height);
-    rotation(Image_G,Image2_G,270,ImageCharacteristic1->Width,ImageCharacteristic1->Height);
-    rotation(Image_B,Image2_B,270,ImageCharacteristic1->Width,ImageCharacteristic1->Height);
-
-    //RGB 합치는 작업
-    for(i=0;i<ImageCharacteristic1->Height;i++){
-      for(j=0;j<ImageCharacteristic1->Width*3;j++){
-        if(j%3==0){
-          Image2[i][j]=Image2_R[i][j/3];
-        }else if(j%3==1){
-          Image2[i][j]=Image2_G[i][j/3];
-        }else{
-          Image2[i][j]=Image2_B[i][j/3];
-        }
-      }
-    }
-
+    rotation_24bit(Image,Image2,270,ImageCharacteristic1->Width,ImageCharacteristic1->Height);
     // int **Image_Monotonic = DoublePointerInteger(ImageCharacteristic1->Height, ImageCharacteristic1->Width);
 
     // 컬러 이미지 -> 흑백 이미지 만들기
