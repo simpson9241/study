@@ -134,6 +134,7 @@ int **BMPtoMatrix(const char *BMP_FileName, ImageKind BMPImageKind)
     return Matrix;
 }
 
+//매트릭스 파일을 다시 bmp 파일로 변환하는 함수
 FILE *MatrixtoBMP(const char *BMP_FileName, int **Matrix, ImageKind BMPImageKind)
 {
     FILE *output = fopen(BMP_FileName, "wb");

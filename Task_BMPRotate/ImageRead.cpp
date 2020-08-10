@@ -1,5 +1,6 @@
 #include "ImageRead.h"
 
+//Integer 포인터 변수 생성
 int *PointerInteger(int x)
 {
     int *Output;
@@ -7,6 +8,7 @@ int *PointerInteger(int x)
     return Output;
 }
 
+//Integer 이중 포인터 변수 생성
 int **DoublePointerInteger(int x, int y)
 {
     int **Output;
@@ -18,6 +20,7 @@ int **DoublePointerInteger(int x, int y)
     return Output;
 }
 
+//Double 포인터 변수 생성
 double *PointerDouble(int x)
 {
     double *Output;
@@ -25,6 +28,7 @@ double *PointerDouble(int x)
     return Output;
 }
 
+//Double 이중 포인터 변수 생성
 double **DoublePointerDouble(int x, int y)
 {
     double **Output;
@@ -36,6 +40,7 @@ double **DoublePointerDouble(int x, int y)
     return Output;
 }
 
+//Integer 벡터 변수 생성
 int *IntegerPaddingVector(int x, int number)
 {
     int *output;
@@ -47,6 +52,7 @@ int *IntegerPaddingVector(int x, int number)
     return output;
 }
 
+//Integer 매트릭스 변수 생성
 int **IntegerPaddingMatrix(int x, int y, int number)
 {
     int **output;
@@ -58,6 +64,7 @@ int **IntegerPaddingMatrix(int x, int y, int number)
     return output;
 }
 
+//파일을 매트릭스로 변환
 int **RawToMatrix(const char *FileName, int x, int y)
 {
     int **matrix = DoublePointerInteger(x, y);
@@ -79,6 +86,7 @@ int **RawToMatrix(const char *FileName, int x, int y)
     return matrix;
 }
 
+//매트릭스를 파일로 변환
 FILE *MatrixToRaw(const char *FileName, int **matrix, int x, int y)
 {
     BYTE temp;
@@ -95,6 +103,7 @@ FILE *MatrixToRaw(const char *FileName, int **matrix, int x, int y)
     return output;
 }
 
+//Integer 매트릭스를 파일에 입력
 FILE *WritingCodexInteger(const char *FileName, int **matrix, int x, int y)
 {
     FILE *output = fopen(FileName, "wb");
@@ -108,6 +117,7 @@ FILE *WritingCodexInteger(const char *FileName, int **matrix, int x, int y)
     return output;
 }
 
+//Double 매트릭스를 파일에 입력
 FILE *WritingCodexDouble(const char *FileName, double **matrix, int x, int y)
 {
     FILE *output = fopen(FileName, "wb");
@@ -121,6 +131,7 @@ FILE *WritingCodexDouble(const char *FileName, double **matrix, int x, int y)
     return output;
 }
 
+//RGB를 각각 분할
 int **RGBdistribution(int **ColourImage, const char *sorting, int x, int y)
 {
     const char *r1 = "Red"; const char *r2 = "RED"; const char *r3 = "red";
@@ -154,6 +165,7 @@ int **RGBdistribution(int **ColourImage, const char *sorting, int x, int y)
     return NonColour;
 }
 
+//나누어져있는 RGB를 하나로 통
 int **RGBcomposition(int **Red, int **Green, int **Blue, int x, int y)
 {
     int ly = 3*y;
@@ -170,6 +182,7 @@ int **RGBcomposition(int **Red, int **Green, int **Blue, int x, int y)
     return Colour;
 }
 
+//Image 출력하는 함수
 void Printingimage(int **matrix, int x, int y)
 {
     for (int i = 0; i < x; i++)
@@ -180,6 +193,7 @@ void Printingimage(int **matrix, int x, int y)
     }
 }
 
+//Double 매트릭스 출력하는 함수
 void Printingdouble(double **matrix, int x, int y)
 {
     for (int i = 0; i < x; i++)
@@ -190,6 +204,7 @@ void Printingdouble(double **matrix, int x, int y)
     }
 }
 
+//Double 매트릭스를 Integer 매트릭스로 변환
 int **ConvertDoubleToInteger(double **matrix, int x, int y)
 {
     int **output = DoublePointerInteger(x, y);
@@ -211,6 +226,7 @@ int **ConvertDoubleToInteger(double **matrix, int x, int y)
     return output;
 }
 
+//Integer 매트릭스를 Double 매트릭스로 변
 double **ConvertIntegerToDouble(int **matrix, int x, int y)
 {
     double **output = DoublePointerDouble(x, y);
@@ -222,6 +238,7 @@ double **ConvertIntegerToDouble(int **matrix, int x, int y)
     return output;
 }
 
+//Integer 매트릭스에서 특정 매트릭스 부분 추출
 int **DevideIntegerMatrix(int **matrix, int xStart, int yStart, int xSize, int ySize, int x, int y)
 {
     int **output = DoublePointerInteger(xSize, ySize);
@@ -233,6 +250,7 @@ int **DevideIntegerMatrix(int **matrix, int xStart, int yStart, int xSize, int y
     return output;
 }
 
+//Double 매트릭스에서 특정 매트릭스 부분 추출
 double **DevideDoubleMatrix(double **matrix, int xStart, int yStart, int xSize, int ySize, int x, int y)
 {
     double **output = DoublePointerDouble(xSize, ySize);
@@ -244,6 +262,7 @@ double **DevideDoubleMatrix(double **matrix, int xStart, int yStart, int xSize, 
     return output;
 }
 
+//Integer 매트릭스 2개를 받아와 하나를 다른 하나에 삽입
 void DistributionIntegerMatrix(int **SmallMatrix, int **BigMatrix, int xStart, int yStart, int xSize, int ySize, int x, int y)
 {
     for (int i = 0 ; i < xSize; i++)
@@ -251,6 +270,7 @@ void DistributionIntegerMatrix(int **SmallMatrix, int **BigMatrix, int xStart, i
             BigMatrix[xStart+i][yStart+j] = SmallMatrix[i][j];
 }
 
+//Double 매트릭스 2개를 받아와 하나를 다른 하나에 삽입
 void DistributionDoubleMatrix(double **SmallMatrix, double **BigMatrix, int xStart, int yStart, int xSize, int ySize, int x, int y)
 {
     for (int i = 0 ; i < xSize; i++)
@@ -258,6 +278,7 @@ void DistributionDoubleMatrix(double **SmallMatrix, double **BigMatrix, int xSta
             BigMatrix[xStart+i][yStart+j] = SmallMatrix[i][j];
 }
 
+//Integer 매트릭스 메모리 해제
 void DestroyInteger(int **matrix, int x)
 {
     for (int i = 0 ; i < x; i++)
@@ -269,6 +290,7 @@ void DestroyInteger(int **matrix, int x)
     //matrix = NULL;
 }
 
+//Double 매트릭스 메모리 해제
 void DestroyDouble(double **matrix, int x)
 {
     for (int i = 0 ; i < x; i++)
