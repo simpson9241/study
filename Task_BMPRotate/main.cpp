@@ -7,6 +7,19 @@
 #define W_FullHD 1920
 #define H_FullHD 1080
 
+/*
+rotation 함수
+
+기능
+-원본 이미지를 특정 각도로 돌려 저장하는 함수
+
+파라미터
+-InputImage: 원본 이미지
+-OutputImage: 수정된 데이터를 가진 출력 이미지
+-Degree: 원본 이미지를 얼마나 돌릴 것인지 정하는 각도 값
+-Width: 원본 이미지의 너비
+-Height: 원본 이미지의 높이
+*/
 void rotation(int **InputImage,int **OutputImage, double Degree, int Width, int Height){
   int x,y;
   int original_x,original_y;
@@ -28,6 +41,24 @@ void rotation(int **InputImage,int **OutputImage, double Degree, int Width, int 
     }
   }
 }
+
+/*
+rotation_24bit 함수
+
+기능
+-24bit 컬러 이미지를 특정 각도로 돌려 저장하는 함수
+-24bit 컬러 이미지 매트릭스를 RGB의 각각 매트릭스로 정보를 나눠 담고 rotation 함수를 이용해 값을 조정한 후 그 매트릭스를 다시 합쳐 OutputImage에 저장
+
+파라미터
+-InputImage: 원본 이미지
+-OutputImage: 수정된 데이터를 가진 출력 이미지
+-Degree: 원본 이미지를 얼마나 돌릴 것인지 정하는 각도 값
+-Width: 원본 이미지의 너비
+-Height: 원본 이미지의 높이
+
+*/
+
+
 
 void rotation_24bit(int **InputImage,int **OutputImage, double Degree, int Width, int Height){
   //받아온 이미지를 RGB 각각으로 나누는 작업
