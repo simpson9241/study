@@ -24,7 +24,7 @@
 1. VLC 실행
 2. Ctrl + N 혹은 미디어-> 네트워크 스트림 열기 로 이동
 3. OBS에서 Server에 설정했던 주소 rtmp://[서버 아이피 주소]/[하위 주소]/[Stream Key] 입력 (e.g. rtmp://localhost/live/test)
-
+4. 재생 버튼 클릭
 
 
 [프로그램 삭제]
@@ -34,18 +34,8 @@
 3. sh uninstall.sh 명령어를 실행하면 자동으로 ffmpeg과 nginx를 삭제
 
 
+[오류 해결 방법]
 
-
-
-
-
-
-nginx 시작할 때 Address already in use 라며 제대로 실행되지 않을 경우 터미널에 다음과 같이 명령을 실행한다.
-sudo fuser -k 80/tcp
-
-이후 nginx 재시작하면 끝.
-
-
-OBS 에서 설정->Streaming Service: Custom -> Server: rtmp://[서버 아이피 주소]/[하위주소]->스트림 키: [임의로 설정]
-
-VLC 미디어 플레이어에서 네트워크 스트림 열기-> 네트워크 주소란 -> rtmp://[서버 아이피 주소]/[하위 주소]/[스트림 키]
+1. nginx 서버를 시작할 때 "Address already in use" 라며 제대로 실행되지 않을 경우
+-> 터미널을 열어 다음과 같이 명령을 실행한다. "sudo fuser -k 80/tcp"
+-> 이후 nginx 서버를 다시 시작한다.
