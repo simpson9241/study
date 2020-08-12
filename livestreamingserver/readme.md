@@ -1,3 +1,5 @@
+#Live Streaming Server using NGINX
+
 [설치 및 실행]
 
 1. 터미널을 실행
