@@ -1,5 +1,4 @@
 #! /bin/bash
-cd bash_files;
 i=0
 
 while [ $i -ne 4 ]
