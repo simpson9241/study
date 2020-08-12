@@ -1,7 +1,8 @@
-
-#Live Streaming Server using NGINX
+Live Streaming Server using NGINX
+=====
 
 [설치 및 실행]
+-----
 
 1. 터미널을 실행
 2. 다운로드 받은 폴더로 경로 이동
@@ -14,6 +15,7 @@
 
 
 [OBS 설정]
+-----
 
 1. OBS 실행
 2. File-> Settings-> Stream 으로 이동
@@ -23,6 +25,7 @@
 
 
 [VLC 설정]
+-----
 
 1. VLC 실행
 2. Ctrl + N 혹은 미디어-> 네트워크 스트림 열기 로 이동
@@ -31,6 +34,7 @@
 
 
 [프로그램 삭제]
+-----
 
 1. 터미널을 실행
 2. livestreamingserver 폴더 경로까지 이동
@@ -38,6 +42,7 @@
 
 
 [오류 해결 방법]
+-----
 
 1. nginx 서버를 시작할 때 "Address already in use" 라며 제대로 실행되지 않을 경우
 -> 터미널을 열어 다음과 같이 명령을 실행한다. "sudo fuser -k 80/tcp"
