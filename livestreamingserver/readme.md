@@ -6,9 +6,9 @@
 2. 다운로드 받은 폴더로 경로 이동
 3. livestreamingserver 폴더 경로에서 sh install.sh 명령어를 실행해 ffmpeg과 nginx를 설치
 4. 그 후 sh setup.sh 명령어를 실행해 nginx 서버의 설정에 rtmp 프로토콜을 추가
-5. sh server_control.sh 명령어를 실행하면 nginx 서버에 대한 조작 가능
--Run Server: nginx 서버 가동
--Restart Server: nginx 서버 재시작
+5. sh server_control.sh 명령어를 실행하면 nginx 서버에 대한 조작 가능  
+-Run Server: nginx 서버 가동  
+-Restart Server: nginx 서버 재시작  
 -Stop Server: nginx 서버 중지
 
 
