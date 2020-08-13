@@ -20,6 +20,7 @@ Live Streaming Server using NGINX
 2. File-> Settings-> Stream 으로 이동
 3. Service를 Custom으로 변경
 4. Server를 rtmp://[서버 아이피 주소]/[하위주소] 로 변경 (e.g. rtmp://localhost/live)
+  rtmp://localhost/live
 5. Stream Key를 임의로 설정(e.g. test)
 
 
@@ -29,6 +30,7 @@ Live Streaming Server using NGINX
 1. VLC 실행
 2. Ctrl + N 혹은 미디어-> 네트워크 스트림 열기 로 이동
 3. OBS에서 Server에 설정했던 주소 rtmp://[서버 아이피 주소]/[하위 주소]/[Stream Key] 입력 (e.g. rtmp://192.168.10.179/live/test)
+  rtmp://192.168.10.179/live/test
 4. 재생 버튼 클릭
 
 
