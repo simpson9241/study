@@ -54,8 +54,8 @@ Live Streaming Server using NGINX
 
 - livestream.sh  
     * bash_files 폴더 안에 있는 bash 파일들을 이용해 전체적인 프로그램 흐름을 제어하는 쉘 스크립트
-        + 1, 2, 3, 4를 입력해 메뉴를 선택하여 해당 기능을 이용할 수 있게 구성
-        + 1, 2, 3, 4가 아닌 다른 숫자를 입력하면 "Invalid Input!" 을 출력  
+        + 1, 2, 3, 4, 5를 입력해 메뉴를 선택하여 해당 기능을 이용할 수 있게 구성
+        + 1, 2, 3, 4, 5가 아닌 다른 숫자를 입력하면 "Invalid Input!" 을 출력  
 - install_ffmpeg.sh
     * ffmpeg 을 다운 받고 빌드해 설치하는 쉘 스크립트
         + 의존 관계가 있는 library 다운로드 및 업데이트
@@ -102,6 +102,17 @@ Live Streaming Server using NGINX
         + 3번 메뉴를 선택한 경우 stop_nginx.sh 파일을 실행하여 nginx 서버를 정지
         + 4번 메뉴를 선택한 경우 쉘 스크립트 종료
         + 1, 2, 3, 4 외 다른 입력을 한 경우 "Invalid Input!"을 출력  
+- stream.sh
+    * ffmpeg을 이용하여 기존에 있는 소스 파일을 rtmp 프로토콜로 스트리밍하는 쉘 스크립트
+        + 소스 파일의 경로와 rtmp 주소를 입력하면 스트리밍 시작
+        + -re 옵션: input을 기존 frame rate로 읽어들임
+        + -i 옵션: 뒤에 오는 것이 input 파일임을 명시
+        + -vcodec: 비디오 코덱은 원본 파일에 따라가는 것을 명시
+        + -loop: 원본 파일이 얼마나 반복될 것인지 명시. (-1은 무한 반복)
+        + -c: 코덱 설정(-c:a는 오디오, -c:v는 영상 이미지)
+        + -b: 비트레이트 설정 (-b:a는 오디오)
+        + -ar: 오디오 샘플링 비율 설정(단위는 Hz)
+        + -f: 파일 포맷 지정
 - remove_ffmpeg.sh
     * ffmpeg을 삭제하는 쉘 스크립트
         + ffmpeg 패키지 및 관련 패키지 삭제
