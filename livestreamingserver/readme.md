@@ -54,8 +54,8 @@ Live Streaming Server using NGINX
 
 - livestream.sh  
     * bash_files 폴더 안에 있는 bash 파일들을 이용해 전체적인 프로그램 흐름을 제어하는 쉘 스크립트
-    + 1, 2, 3, 4를 입력해 메뉴를 선택하여 해당 기능을 이용할 수 있게 구성
-    + 1, 2, 3, 4가 아닌 다른 숫자를 입력하면 "Invalid Input!" 을 출력  
+        + 1, 2, 3, 4를 입력해 메뉴를 선택하여 해당 기능을 이용할 수 있게 구성
+        + 1, 2, 3, 4가 아닌 다른 숫자를 입력하면 "Invalid Input!" 을 출력  
 - install_ffmpeg.sh
     * ffmpeg 을 다운 받고 빌드해 설치하는 쉘 스크립트
     * 의존 관계가 있는 library 다운로드 및 업데이트
