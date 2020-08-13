@@ -63,7 +63,6 @@ Live Streaming Server using NGINX
 - uninstall.sh
 
 
-<hr>
 [RTMP 프로토콜 추가 설명]
 -----
 
