@@ -9,15 +9,12 @@ do
 	if [ $i -eq 1 ]
 	then
 		sh start_nginx.sh;
-		echo "Server Running"
 	elif [ $i -eq 2 ]
 	then
 		sh restart_nginx.sh;
-		echo "Server Restarted"
 	elif [ $i -eq 3 ]
 	then
 		sh stop_nginx.sh;
-		echo "Server Stopped"
 	elif [ $i -gt 4 -o $i -lt 1 ]
 	then
 		echo "Invalid Input!"
