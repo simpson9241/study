@@ -134,3 +134,8 @@ Live Streaming Server using NGINX
 -----
 
 - text.txt
+    * rtmp 프로토콜에 대한 설정이 담긴 텍스트 파일
+        + listen: 1935 포트를 쓴다는 것을 명시
+        + chunk_size: chunk 크기를 지정
+        + live: 라이브 스트리밍 설정
+        + record: 녹화 설정
