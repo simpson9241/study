@@ -44,6 +44,7 @@ Live Streaming Server using NGINX
 
 1. nginx 서버를 시작할 때 "Address already in use" 라며 제대로 실행되지 않을 경우
 - 터미널을 열어 다음과 같이 명령을 실행 "sudo fuser -k 80/tcp"
+- 이때 이미 쓰여지고 있는 포트 번호를 기억하고 상황에 따라 변경해서 명령어 실행
 - 이후 nginx 서버를 다시 시작
 - 만약 그래도 안된다면 /etc/nginx 폴더에 있는 nginx.conf 파일에 특정 프로토콜에 대한 설정이 중복으로 있는지 확인한 후 중복된 것을 삭제
 - 이 프로그램을 통해 두 번 이상 설치하면 nginx.conf 파일에 rtmp 프로토콜에 대한 설정이 중복으로 들어가게 되므로 확인 권장
@@ -53,8 +54,8 @@ Live Streaming Server using NGINX
 
 - livestream.sh  
     * bash_files 폴더 안에 있는 bash 파일들을 이용해 전체적인 프로그램 흐름을 제어하는 쉘 스크립트
-    * 1, 2, 3, 4를 입력해 메뉴를 선택하여 해당 기능을 이용할 수 있게 구성
-    * 1, 2, 3, 4가 아닌 다른 숫자를 입력하면 "Invalid Input!" 을 출력  
+    + 1, 2, 3, 4를 입력해 메뉴를 선택하여 해당 기능을 이용할 수 있게 구성
+    + 1, 2, 3, 4가 아닌 다른 숫자를 입력하면 "Invalid Input!" 을 출력  
 - install_ffmpeg.sh
     * ffmpeg 을 다운 받고 빌드해 설치하는 쉘 스크립트
     * 의존 관계가 있는 library 다운로드 및 업데이트
