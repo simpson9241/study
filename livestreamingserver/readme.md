@@ -43,8 +43,10 @@ Live Streaming Server using NGINX
 -----
 
 1. nginx 서버를 시작할 때 "Address already in use" 라며 제대로 실행되지 않을 경우
-- 터미널을 열어 다음과 같이 명령을 실행한다. "sudo fuser -k 80/tcp"
-- 이후 nginx 서버를 다시 시작한다.
+- 터미널을 열어 다음과 같이 명령을 실행 "sudo fuser -k 80/tcp"
+- 이후 nginx 서버를 다시 시작
+- 만약 그래도 안된다면 /etc/nginx 폴더에 있는 nginx.conf 파일에 특정 프로토콜에 대한 설정이 중복으로 있는지 확인한 후 중복된 것을 삭제
+- 이 프로그램을 통해 두 번 이상 설치하면 nginx.conf 파일에 rtmp 프로토콜에 대한 설정이 중복으로 들어가게 되므로 확인 권장
 
 [쉘 스크립트 설명]
 -----
