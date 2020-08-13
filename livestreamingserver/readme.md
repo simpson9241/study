@@ -52,7 +52,7 @@ Live Streaming Server using NGINX
 - livestream.sh  
     * bash_files 폴더 안에 있는 bash 파일들을 이용해 전체적인 프로그램 흐름을 제어하는 쉘 스크립트
     * 1, 2, 3, 4를 입력해 메뉴를 선택하여 해당 기능을 이용할 수 있게 구성
-    * 1, 2, 3, 4가 아닌 다른 숫자를 입력하면 "Invalid Input!" 을 출력
+    * 1, 2, 3, 4가 아닌 다른 숫자를 입력하면 "Invalid Input!" 을 출력  
 - install_ffmpeg.sh
     * ffmpeg 을 다운 받고 빌드해 설치하는 쉘 스크립트
     * 의존 관계가 있는 library 다운로드 및 업데이트
@@ -62,7 +62,7 @@ Live Streaming Server using NGINX
     * libx264, libfdk-aac, libmp3lame, libopus, libvpx 코덱 설치
     * ffmpeg 설치
     * 환경 변수 설정
-    * ffserver 설치
+    * ffserver 설치  
 - install_nginx.sh
     * nginx 컴파일 소스를 다운 받고 빌드하여 설치하는 쉘 스크립트
     * 코어 및 모듈 동작에 필요한 PCRE, zlib, OpenSSL 라이브러리와 기본 패키지에서 제공하는 모듈을 사용할 수 있게 해주는 개발자 패키지와 컴파일러를 설치
@@ -70,7 +70,7 @@ Live Streaming Server using NGINX
     * nginx 컴파일 소스 다운로드
     * 환경 설정 옵션에서 nginx 패키지에 포함된 모든 모듈을 사용할 수 있게 하고, 다운 받았던 rtmp 모듈을 추가
     * 환경 설정 옵션에서 설정 파일을 /etc/nginx 에 위치할 수 있도록 설정
-    * make 명령어로 컴파일 후 make install 명령어 실행
+    * make 명령어로 컴파일 후 make install 명령어 실행  
 - config_nginx.sh
     * /etc/nginx 폴더에 위치한 nginx.conf 환경 설정 파일에 rtmp 프로토콜에 대한 내용을 추가해주는 쉘 스크립트
     * /etc/nginx 폴더에 위치한 nginx.conf 파일의 권한을 777로 설정
@@ -78,39 +78,39 @@ Live Streaming Server using NGINX
     * 생성한 임시 파일의 권한을 777로 설정
     * /etc/nginx 폴더에 위치한 nginx.conf 파일에 bash_files 폴더에 위치한 text.txt의 내용을 이어 붙여서 생성했던 임시 파일에 저장
     * 이후 임시 파일의 내용을 /etc/nginx 폴더의 nginx.conf 파일에 덮어쓰기
-    * 생성했던 임시 파일 삭제
+    * 생성했던 임시 파일 삭제  
 - install.sh
     * ffmpeg과 nginx 모두 설치하는 쉘 스크립트
-    * install_ffmpeg.sh 파일과 install_nginx.sh 파일을 실행
+    * install_ffmpeg.sh 파일과 install_nginx.sh 파일을 실행  
 - start_nginx.sh
     * nginx 서버를 시작하는 쉘 스크립트
-    * /etc/nginx/ 폴더로 이동하여 nginx를 실행
+    * /etc/nginx/ 폴더로 이동하여 nginx를 실행  
 - restart_nginx.sh
     * nginx 서버를 재기동하는 쉘 스크립트
     * /etc/nginx/ 폴더로 이동하여 nginx를 재시작
-    * 설정 파일을 다시 읽어 서버에 반영
+    * 설정 파일을 다시 읽어 서버에 반영  
 - stop_nginx.sh
     * nginx 서버를 정지시키는 쉘 스크립트
-    * /etc/nginx/ 폴더로 이동하여 nginx를 정지
+    * /etc/nginx/ 폴더로 이동하여 nginx를 정지  
 - server_control.sh
     * 서버를 시작, 재시작, 정지할 수 있도록 서버를 컨트롤하는 쉘 스크립트
     * 1번 메뉴를 선택한 경우 start_nginx.sh 파일을 실행하여 nginx 서버를 시작
     * 2번 메뉴를 선택한 경우 restart_nginx.sh 파일을 실행하여 nginx 서버를 재시작
     * 3번 메뉴를 선택한 경우 stop_nginx.sh 파일을 실행하여 nginx 서버를 정지
     * 4번 메뉴를 선택한 경우 쉘 스크립트 종료
-    * 1, 2, 3, 4 외 다른 입력을 한 경우 "Invalid Input!"을 출력
+    * 1, 2, 3, 4 외 다른 입력을 한 경우 "Invalid Input!"을 출력  
 - remove_ffmpeg.sh
     * ffmpeg을 삭제하는 쉘 스크립트
     * ffmpeg 패키지 및 관련 패키지 삭제
     * ffmpeg을 설치했던 패키지와 생성했던 폴더 및 파일들 삭제
     * 환경변수 설정해줬던 것을 sed 명령어로 삭제
-    * $PATH 와 기억된 경로를 통해 명령어를 찾은 이력(해쉬 테이블)을 초기화
+    * $PATH 와 기억된 경로를 통해 명령어를 찾은 이력(해쉬 테이블)을 초기화  
 - remove_nginx.sh
     * nginx를 삭제하는 쉘 스크립트
     * nginx를 설치할 때 다운 받았던 rtmp 모듈 관련 파일 삭제
     * nginx, nginx-common, nginx-full, nginx-core 패키지 삭제
     * /usr/lcoal/nginx 와 /usr/local/sbin/nginx 삭제
-    * /usr/share/nginx 삭제
+    * /usr/share/nginx 삭제  
 - uninstall.sh
     * ffmpeg과 nginx를 삭제하는 쉘 스크립트
     * remove_nginx.sh 와 remove_ffmpeg.sh 를 실행
