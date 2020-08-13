@@ -39,7 +39,6 @@ Live Streaming Server using NGINX
 2. livestreamingserver 폴더 경로까지 이동
 3. sh livestream.sh 명령어를 실행하고 3번 메뉴를 선택하면 자동으로 ffmpeg과 nginx를 삭제
 
-<hr>
 [오류 해결 방법]
 -----
 
@@ -47,9 +46,9 @@ Live Streaming Server using NGINX
 - 터미널을 열어 다음과 같이 명령을 실행한다. "sudo fuser -k 80/tcp"
 - 이후 nginx 서버를 다시 시작한다.
 
-<hr>
 [쉘 스크립트 설명]
 -----
+
 - livestream.sh
 - install_ffmpeg.sh
 - install_nginx.sh
@@ -67,4 +66,5 @@ Live Streaming Server using NGINX
 <hr>
 [RTMP 프로토콜 추가 설명]
 -----
+
 - text.txt
