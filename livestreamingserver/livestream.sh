@@ -2,9 +2,9 @@
 cd bash_files/;
 n=0
 
-while [ $n -ne 5 ]
+while [ $n -ne 6 ]
 do
-	echo "1. Install  2. Control Server  3. Stream  4. Uninstall  5. Exit"
+	echo "1. Install  2. Control Server  3. Stream  4. Make VOD  5. Uninstall  6. Exit"
 	echo "Input: "
 	read n
 	if [ $n -eq 1 ]
@@ -20,9 +20,12 @@ do
 		sh stream.sh;
 	elif [ $n -eq 4 ]
 	then
+		sh hls.sh;
+	elif [ $n -eq 5 ]
+	then
 		sh uninstall.sh;
 		echo "Uninstall Complete"
-	elif [ $n -gt 5 -o $n -lt 1 ]
+	elif [ $n -gt 6 -o $n -lt 1 ]
 	then
 		echo "Invalid Input!"
 	else

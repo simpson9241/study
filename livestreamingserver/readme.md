@@ -11,6 +11,10 @@ Live Streaming Server using NGINX
 - Run Server: nginx 서버 가동  
 - Restart Server: nginx 서버 재시작  
 - Stop Server: nginx 서버 중지
+5. 3번 메뉴를 선택하면 원본 영상 파일로 스트리밍 시작 가능
+6. 4번 메뉴를 선택하면 원본 영상을 m3u8 파일로 변환하여 ~/vod 폴더에 저장
+7. 5번 메뉴를 선택하면 ffmpeg과 nginx 삭제
+8. 6번 메뉴를 선택하면 프로그램 중지
 
 
 [OBS 설정]
@@ -54,8 +58,8 @@ Live Streaming Server using NGINX
 
 - livestream.sh  
     * bash_files 폴더 안에 있는 bash 파일들을 이용해 전체적인 프로그램 흐름을 제어하는 쉘 스크립트
-        + 1, 2, 3, 4, 5를 입력해 메뉴를 선택하여 해당 기능을 이용할 수 있게 구성
-        + 1, 2, 3, 4, 5가 아닌 다른 숫자를 입력하면 "Invalid Input!" 을 출력  
+        + 1, 2, 3, 4, 5, 6을 입력해 메뉴를 선택하여 해당 기능을 이용할 수 있게 구성
+        + 1, 2, 3, 4, 5, 6이 아닌 다른 숫자를 입력하면 "Invalid Input!" 을 출력  
 - install_ffmpeg.sh
     * ffmpeg 을 다운 받고 빌드해 설치하는 쉘 스크립트
         + 의존 관계가 있는 library 다운로드 및 업데이트
@@ -65,7 +69,6 @@ Live Streaming Server using NGINX
         + libx264, libfdk-aac, libmp3lame, libopus, libvpx 코덱 설치
         + ffmpeg 설치
         + 환경 변수 설정
-        + ffserver 설치  
 - install_nginx.sh
     * nginx 컴파일 소스를 다운 받고 빌드하여 설치하는 쉘 스크립트
         + 코어 및 모듈 동작에 필요한 PCRE, zlib, OpenSSL 라이브러리와 기본 패키지에서 제공하는 모듈을 사용할 수 있게 해주는 개발자 패키지와 컴파일러를 설치
@@ -74,6 +77,7 @@ Live Streaming Server using NGINX
         + 환경 설정 옵션에서 nginx 패키지에 포함된 모든 모듈을 사용할 수 있게 하고, 다운 받았던 rtmp 모듈을 추가
         + 환경 설정 옵션에서 설정 파일을 /etc/nginx 에 위치할 수 있도록 설정
         + make 명령어로 컴파일 후 make install 명령어 실행  
+        + ~/vod 파일 생성
 - config_nginx.sh
     * /etc/nginx 폴더에 위치한 nginx.conf 환경 설정 파일에 rtmp 프로토콜에 대한 내용을 추가해주는 쉘 스크립트
         + /etc/nginx 폴더에 위치한 nginx.conf 파일의 권한을 777로 설정
@@ -113,6 +117,9 @@ Live Streaming Server using NGINX
         + -b: 비트레이트 설정 (-b:a는 오디오)
         + -ar: 오디오 샘플링 비율 설정(단위는 Hz)
         + -f: 파일 포맷 지정
+- hls.sh
+    * ffmpeg을 이용하여 원본파일을 hls 프로토콜로 nginx 서버에 연결하는 쉘 스크립트
+        +
 - remove_ffmpeg.sh
     * ffmpeg을 삭제하는 쉘 스크립트
         + ffmpeg 패키지 및 관련 패키지 삭제
@@ -139,3 +146,7 @@ Live Streaming Server using NGINX
         + chunk_size: chunk 크기를 지정
         + live: 라이브 스트리밍 설정
         + record: 녹화 설정
+
+
+nginx hls vod 설정 다시 제대로 하기
+현재 /home/inisoft/vod 파일에 hls 파일 저장
