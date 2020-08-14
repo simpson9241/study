@@ -118,8 +118,16 @@ Live Streaming Server using NGINX
         + -ar: 오디오 샘플링 비율 설정(단위는 Hz)
         + -f: 파일 포맷 지정
 - hls.sh
-    * ffmpeg을 이용하여 원본파일을 hls 프로토콜로 nginx 서버에 연결하는 쉘 스크립트
-        +
+    * ffmpeg을 이용하여 원본 파일을 m3u8 파일로 변환하여 ~/vod 폴더에 저장하는 쉘 스크립트
+        + /home/{username}/ 에 들어갈 username 입력
+        + 원본 파일의 경로 입력
+        + 결과물로 나올 m3u8 파일의 이름 입력
+        + -i: input 파일이 뒤에 나오는 것을 명시
+        + -bsf: bit stream filter를 지정
+        + h264_mp4toannexb: bit stream filter의 일종. mp4 파일은 length marker가 있고 h264 데이터의 00 00 01 prefix 데이터가 없으므로 h264 디코더가 제대로 작동하지 않음. 이 filter를 적용해 file header에 명시된 pps/sps를 식별해 이 문제를 해결.
+        + -c: 코덱 명시
+        + -hls_time: 세그먼트 길이 설정
+        + -hls_list_size: playlist 최대 개수, 모든 playlist를 넣기 위해서는 0으로 설정
 - remove_ffmpeg.sh
     * ffmpeg을 삭제하는 쉘 스크립트
         + ffmpeg 패키지 및 관련 패키지 삭제
@@ -147,6 +155,4 @@ Live Streaming Server using NGINX
         + live: 라이브 스트리밍 설정
         + record: 녹화 설정
 
-
-nginx hls vod 설정 다시 제대로 하기
 현재 /home/inisoft/vod 파일에 hls 파일 저장
