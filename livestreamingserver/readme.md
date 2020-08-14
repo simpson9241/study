@@ -15,7 +15,7 @@ Live Streaming Server using NGINX
 6. 4번 메뉴를 선택하면 원본 영상을 m3u8 파일로 변환하여 ~/vod 폴더에 저장
 7. 5번 메뉴를 선택하면 ffmpeg과 nginx 삭제
 8. 6번 메뉴를 선택하면 프로그램 중지
-
+9. http://[서버 아이피 주소]/vod/[파일 이름] 으로 vlc에서 네트워크 스트림 지정하면 vod 파일 재생
 
 [OBS 설정]
 -----
@@ -142,7 +142,7 @@ Live Streaming Server using NGINX
         + /usr/share/nginx 삭제  
 - uninstall.sh
     * ffmpeg과 nginx를 삭제하는 쉘 스크립트
-        + remove_nginx.sh 와 remove_ffmpeg.sh 를 실행
+        + remove_nginx.sh 와 remove_ffmpeg.sh 실행
 
 
 [RTMP 프로토콜 추가 설명]
