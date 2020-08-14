@@ -149,10 +149,9 @@ Live Streaming Server using NGINX
 -----
 
 - text.txt
-    * rtmp 프로토콜에 대한 설정이 담긴 텍스트 파일
+    * rtmp 프로토콜과 http 프로토콜에 대한 설정이 담긴 텍스트 파일(rtmp 프로토콜에 대한 내용 추가하기)
         + listen: 1935 포트를 쓴다는 것을 명시
         + chunk_size: chunk 크기를 지정
         + live: 라이브 스트리밍 설정
         + record: 녹화 설정
-
-현재 /home/inisoft/vod 파일에 hls 파일 저장
+        + /etc/nginx 폴더에 있는 nginx.conf 파일에서 특정 경로들을 변경해서 설정해줘야 제대로 돌아감.

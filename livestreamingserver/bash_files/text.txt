@@ -1,62 +1,79 @@
+#worker_processes: nginx 프로세스 실행 가능 수
 worker_processes  1;
 
+#events: nginx 서버의 비동기 이벤트 처리 방식에 대한 옵션 설정
 events {
 
-    worker_connections  1024;
+	#worker_connections: 하나의 프로세스가 처리할 수 있는 커넥션의 수
+	#최대 접속자수는 worker_processes와 worker_connections 의 곱한 값이다.
+	worker_connections  1024;
 
 }
 
 rtmp{
 	server{
-	listen 1935;
-	chunk_size 4096;
+		listen 1935;
+		chunk_size 4096;
 
-	application live{
-	live on;
-	record off;
+		application live{
+			live on;
+			record off;
+		}
+	
+		application vod{
+			live on;
+			hls on;
+			hls_path /home/inisoft/vod/;
+			hls_cleanup off;
+		}
 	}
-
-	application hls{
-	live on;
-	hls on;
-	hls_path /home/inisoft/vod/;
-	hls_cleanup off;
-  }
-}
 }
 
+#http: http 웹 서버에 대한 동작 설정
 http {
+	
+	#/etc/mime.types 파일을 include 하면서 file name의 맵핑된 데이터를 불러옴
+	include       mime.types;
 
-    include       mime.types;
+	#기본 mime type을 설정
+	default_type  application/octet-stream;
 
-    default_type  application/octet-stream;
-    sendfile on;
-    keepalive_timeout  65;
+	#sendfile() 함수 사용 여부 설정
+	sendfile on;
 
-    server {
+	#keepalive_timeout: 접속 시 연결을 몇 초 동안 유지할 것인지에 대해 설정
+	keepalive_timeout  65;
 
-        listen       80;
-
-        server_name  localhost;
-
-        location / {
-            index  index.html index.htm;
-
-      	}
-
-
-        location /vod/ {
-
-                root /home/inisoft/;
+	#가상 서버에 대한 설정 구성
+	server {
 		
-        }
+		#listen: IP 주소 또는 포트에 대해 설정
+	        listen       80;
 
-	types {
-		application/vnd.apple.mpegurl m3u8;
-		video/mp2t ts;
-		text/html html;
+		#server_name: 가상 서버의 이름을 설정
+        	server_name  localhost;
+
+		#location: Request URI에 대해 설정
+		location / {
+         		index  index.html index.htm;
+	
+      		}
+
+		
+    		location /vod/ {
+	
+			#Request에 대한 root 경로를 설정
+                	root /home/inisoft/;
+		
+        	}
+
+		#types: 파일 이름 확장자들을 mime type들에 매핑
+		types {
+			application/vnd.apple.mpegurl m3u8;
+			video/mp2t ts;
+			text/html html;
+		}
+
 	}
-
-    }
 
 }

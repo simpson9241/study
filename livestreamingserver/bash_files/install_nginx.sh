@@ -41,7 +41,7 @@ cd nginx-1.19.2;
 	--with-google_perftools_module \
 	--with-cpp_test_module \
 	--with-debug \
-	--add-module=../nginx-rtmp-module-master \
+	--add-module=../nginx-rtmp-module-master;
 sudo make;
 sudo make install;
 
