@@ -154,4 +154,4 @@ Live Streaming Server using NGINX
         + chunk_size: chunk 크기를 지정
         + live: 라이브 스트리밍 설정
         + record: 녹화 설정
-        + /etc/nginx 폴더에 있는 nginx.conf 파일에서 특정 경로들을 변경해서 설정해줘야 제대로 돌아감.
+        + /etc/nginx 폴더에 있는 nginx.conf 파일에서 특정 경로들을 변경해서 설정 필요
