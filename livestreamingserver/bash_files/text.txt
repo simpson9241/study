@@ -11,19 +11,37 @@ events {
 }
 
 rtmp{
+	#가상 서버에 대한 설정 구성
 	server{
+		#포트 명시
 		listen 1935;
+
+		#chunk 크기 설정
 		chunk_size 4096;
 
+		#live application 설정
 		application live{
+
+			#라이브 스트리밍 활성화
 			live on;
+
+			#녹화 비활성화
 			record off;
 		}
 	
+		#vod application 설정
 		application vod{
+
+			#라이브 스트리밍 활성화
 			live on;
+
+			#hls 활성화
 			hls on;
+
+			#hls 경로 설정
 			hls_path /home/inisoft/vod/;
+
+			#hls 세그먼트 자동 삭제 비활성화
 			hls_cleanup off;
 		}
 	}

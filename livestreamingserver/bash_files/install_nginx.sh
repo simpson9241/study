@@ -1,12 +1,21 @@
 cd ~/;
 sudo apt-get install libperl-dev libpcre3 libpcre3-dev zlib1g zlib1g-dev openssl libssl-dev libxml2-dev libxslt1-dev libgd-dev libgeoip-dev google-perftools libgoogle-perftools-dev gcc g++;
 
+#rtmp 모듈 다운로드
 wget https://github.com/arut/nginx-rtmp-module/archive/master.zip;
 unzip master.zip;
 
+#nginx 컴파일 소스 다운로드
 wget http://nginx.org/download/nginx-1.19.2.tar.gz;
 tar -zxf nginx-1.19.2.tar.gz;
 cd nginx-1.19.2;
+
+#--sbin-path: nginx 바이너리 파일이 설치되는 경로 설정
+#--prefix: nginx가 설치되는 경로 설정
+#--conf-path: 환경 설정 파일 경로 설정
+#--error-log-path: 에러 로그 파일 경로 설정
+#--http-log-path: 접근 로그 경로  설정
+#--pid-path: pid 파일 경로 설정
 ./configure \
 	--sbin-path=/usr/local/sbin/nginx \
 	--prefix=/usr/share/nginx \

@@ -15,7 +15,7 @@ Live Streaming Server using NGINX
 6. 4번 메뉴를 선택하면 원본 영상을 m3u8 파일로 변환하여 ~/vod 폴더에 저장
 7. 5번 메뉴를 선택하면 ffmpeg과 nginx 삭제
 8. 6번 메뉴를 선택하면 프로그램 중지
-9. http://[서버 아이피 주소]/vod/[파일 이름] 으로 vlc에서 네트워크 스트림 지정하면 vod 파일 재생
+9. http://[서버 아이피 주소]/vod/[파일 이름] 으로 vlc에서 네트워크 스트림 지정하면 vod 파일 재생 (e.g. http://192.168.10.179/vod/bunny.m3u8)
 
 [OBS 설정]
 -----
@@ -50,8 +50,6 @@ Live Streaming Server using NGINX
 - 터미널을 열어 다음과 같이 명령을 실행 "sudo fuser -k 80/tcp"
 - 이때 이미 쓰여지고 있는 포트 번호를 기억하고 상황에 따라 변경해서 명령어 실행
 - 이후 nginx 서버를 다시 시작
-- 만약 그래도 안된다면 /etc/nginx 폴더에 있는 nginx.conf 파일에 특정 프로토콜에 대한 설정이 중복으로 있는지 확인한 후 중복된 것을 삭제
-- 이 프로그램을 통해 두 번 이상 설치하면 nginx.conf 파일에 rtmp 프로토콜에 대한 설정이 중복으로 들어가게 되므로 확인 권장
 
 [쉘 스크립트 설명]
 -----
@@ -76,16 +74,12 @@ Live Streaming Server using NGINX
         + nginx 컴파일 소스 다운로드
         + 환경 설정 옵션에서 nginx 패키지에 포함된 모든 모듈을 사용할 수 있게 하고, 다운 받았던 rtmp 모듈을 추가
         + 환경 설정 옵션에서 설정 파일을 /etc/nginx 에 위치할 수 있도록 설정
-        + make 명령어로 컴파일 후 make install 명령어 실행  
+        + make 명령어로 컴파일 후 make install 명령어 실행
         + ~/vod 파일 생성
 - config_nginx.sh
     * /etc/nginx 폴더에 위치한 nginx.conf 환경 설정 파일에 rtmp 프로토콜에 대한 내용을 추가해주는 쉘 스크립트
         + /etc/nginx 폴더에 위치한 nginx.conf 파일의 권한을 777로 설정
-        + 환경 설정을 잠시 저장할 임시 파일을 생성
-        + 생성한 임시 파일의 권한을 777로 설정
-        + /etc/nginx 폴더에 위치한 nginx.conf 파일에 bash_files 폴더에 위치한 text.txt의 내용을 이어 붙여서 생성했던 임시 파일에 저장
-        + 이후 임시 파일의 내용을 /etc/nginx 폴더의 nginx.conf 파일에 덮어쓰기
-        + 생성했던 임시 파일 삭제  
+        + /etc/nginx 폴더에 위치한 nginx.conf 파일에 bash_files 폴더에 위치한 text.txt의 내용을 덮어써서 저장
 - install.sh
     * ffmpeg과 nginx 모두 설치하는 쉘 스크립트
         + install_ffmpeg.sh 파일과 install_nginx.sh 파일을 실행  
@@ -109,8 +103,8 @@ Live Streaming Server using NGINX
 - stream.sh
     * ffmpeg을 이용하여 기존에 있는 소스 파일을 rtmp 프로토콜로 스트리밍하는 쉘 스크립트
         + 소스 파일의 경로와 rtmp 주소를 입력하면 스트리밍 시작
-        + -re 옵션: input을 기존 frame rate로 읽어들임
-        + -i 옵션: 뒤에 오는 것이 input 파일임을 명시
+        + -re: input을 기존 frame rate로 읽어들임
+        + -i: 뒤에 오는 것이 input 파일임을 명시
         + -vcodec: 비디오 코덱은 원본 파일에 따라가는 것을 명시
         + -loop: 원본 파일이 얼마나 반복될 것인지 명시. (-1은 무한 반복)
         + -c: 코덱 설정(-c:a는 오디오, -c:v는 영상 이미지)
@@ -154,4 +148,4 @@ Live Streaming Server using NGINX
         + chunk_size: chunk 크기를 지정
         + live: 라이브 스트리밍 설정
         + record: 녹화 설정
-        + /etc/nginx 폴더에 있는 nginx.conf 파일에서 특정 경로들을 변경해서 설정 필요
+        + /etc/nginx 폴더에 있는 nginx.conf 파일에서 특정 경로들을 변경해서 설정 필요(hls_path, location /vod/ 의 root)
