@@ -13,9 +13,9 @@ Live Streaming Server Using NGINX
 -----
 
 1. sh livestream.sh 명령어를 실행하고 2번 메뉴를 선택하고 각 기능에 해당하는 번호를 입력하면 nginx 서버에 대한 조작 가능  
-- Run Server: nginx 서버 가동  
-- Restart Server: nginx 서버 재시작  
-- Stop Server: nginx 서버 중지
+  - Run Server: nginx 서버 가동  
+  - Restart Server: nginx 서버 재시작  
+  - Stop Server: nginx 서버 중지
 2. 3번 메뉴를 선택하면 원본 영상 파일로 스트리밍 시작
 3. 4번 메뉴를 선택하면 원본 영상을 m3u8 파일로 변환하여 ~/vod 폴더에 저장
 4. 5번 메뉴를 선택하면 ffmpeg과 nginx 삭제
