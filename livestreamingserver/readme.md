@@ -7,12 +7,14 @@ Live Streaming Server Using NGINX
 1. 터미널 실행
 2. 다운로드 받은 폴더로 경로 이동
 3. livestream.sh 파일이 있는 livestreamingserver 폴더 경로에서 sh livestream.sh 명령어를 실행 후 1번 메뉴를 선택해 ffmpeg과 nginx를 설치
+<pre><code>sh livestream.sh</code></pre>
 
 
 [실행]
 -----
 
-1. sh livestream.sh 명령어를 실행하고 2번 메뉴를 선택하고 각 기능에 해당하는 번호를 입력하면 nginx 서버에 대한 조작 가능  
+1. sh livestream.sh 명령어를 실행하고 2번 메뉴를 선택하고 각 기능에 해당하는 번호를 입력하면 nginx 서버에 대한 조작 가능
+<pre><code>sh livestream.sh</code></pre>
   - Run Server: nginx 서버 가동  
   - Restart Server: nginx 서버 재시작  
   - Stop Server: nginx 서버 중지
@@ -21,11 +23,7 @@ Live Streaming Server Using NGINX
 4. 5번 메뉴를 선택하면 ffmpeg과 nginx 삭제
 5. 6번 메뉴를 선택하면 프로그램 중지
 6. http://[서버 아이피 주소]/vod/[파일 이름] 으로 vlc에서 네트워크 스트림 지정하면 vod 파일 재생
-<pre>
-<code>
-http://192.168.10.179/vod/bunny.m3u8
-</code>
-</pre>
+<pre><code>http://192.168.10.179/vod/bunny.m3u8</code></pre>
 
 [OBS 설정]
 -----
@@ -34,7 +32,7 @@ http://192.168.10.179/vod/bunny.m3u8
 2. File-> Settings-> Stream 으로 이동
 3. Service를 Custom으로 변경
 4. Server를 rtmp://[서버 아이피 주소]/[하위주소] 로 변경
-<pre><code>rtmp://localhost/live</pre></code>
+<pre><code>rtmp://localhost/live</code></pre>
 5. Stream Key를 임의로 설정(e.g. test)
 
 
@@ -43,7 +41,8 @@ http://192.168.10.179/vod/bunny.m3u8
 
 1. VLC 실행
 2. Ctrl + N 혹은 미디어-> 네트워크 스트림 열기 로 이동
-3. OBS에서 Server에 설정했던 주소 rtmp://[서버 아이피 주소]/[하위 주소]/[Stream Key] 입력 (e.g. rtmp://192.168.10.179/live/test)
+3. OBS에서 Server에 설정했던 주소 rtmp://[서버 아이피 주소]/[하위 주소]/[Stream Key] 입력
+<pre><code>rtmp://192.168.10.179/live/test</code></pre>
 4. 재생 버튼 클릭
 
 
@@ -53,12 +52,14 @@ http://192.168.10.179/vod/bunny.m3u8
 1. 터미널을 실행
 2. livestreamingserver 폴더 경로까지 이동
 3. sh livestream.sh 명령어를 실행하고 3번 메뉴를 선택하면 자동으로 ffmpeg과 nginx를 삭제
+<pre><code>sh livestream.sh</code></pre>
 
 [오류 해결 방법]
 -----
 
 1. nginx 서버를 시작할 때 "Address already in use" 라며 제대로 실행되지 않을 경우
 - 터미널을 열어 다음과 같이 명령을 실행 "sudo fuser -k 80/tcp"
+<pre><code>sudo fuser -k 80/tcp</code></pre>
 - 이때 이미 쓰여지고 있는 포트 번호를 기억하고 상황에 따라 변경해서 명령어 실행
 - 이후 nginx 서버를 다시 시작
 
