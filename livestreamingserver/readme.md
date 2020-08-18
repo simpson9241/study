@@ -21,8 +21,11 @@ Live Streaming Server Using NGINX
 4. 5번 메뉴를 선택하면 ffmpeg과 nginx 삭제
 5. 6번 메뉴를 선택하면 프로그램 중지
 6. http://[서버 아이피 주소]/vod/[파일 이름] 으로 vlc에서 네트워크 스트림 지정하면 vod 파일 재생
-
-    (e.g. http://192.168.10.179/vod/bunny.m3u8)
+<pre>
+<code>
+(e.g. http://192.168.10.179/vod/bunny.m3u8)
+</code>
+</pre>
 
 [OBS 설정]
 -----
