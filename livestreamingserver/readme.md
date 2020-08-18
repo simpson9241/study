@@ -1,21 +1,28 @@
-Live Streaming Server using NGINX
+Live Streaming Server Using NGINX
 =====
 
-[설치 및 실행]
+[설치]
 -----
 
 1. 터미널 실행
 2. 다운로드 받은 폴더로 경로 이동
-3. livestreamingserver 폴더 경로에서 sh livestream.sh 명령어를 실행 후 1번 메뉴를 선택해 ffmpeg과 nginx를 설치
-4. sh livestream.sh 명령어를 실행하고 2번 메뉴를 선택하면 각 기능에 해당하는 번호를 입력하면 nginx 서버에 대한 조작 가능  
+3. livestream.sh 파일이 있는 livestreamingserver 폴더 경로에서 sh livestream.sh 명령어를 실행 후 1번 메뉴를 선택해 ffmpeg과 nginx를 설치
+
+
+[실행]
+-----
+
+1. sh livestream.sh 명령어를 실행하고 2번 메뉴를 선택하고 각 기능에 해당하는 번호를 입력하면 nginx 서버에 대한 조작 가능  
 - Run Server: nginx 서버 가동  
 - Restart Server: nginx 서버 재시작  
 - Stop Server: nginx 서버 중지
-5. 3번 메뉴를 선택하면 원본 영상 파일로 스트리밍 시작 가능
-6. 4번 메뉴를 선택하면 원본 영상을 m3u8 파일로 변환하여 ~/vod 폴더에 저장
-7. 5번 메뉴를 선택하면 ffmpeg과 nginx 삭제
-8. 6번 메뉴를 선택하면 프로그램 중지
-9. http://[서버 아이피 주소]/vod/[파일 이름] 으로 vlc에서 네트워크 스트림 지정하면 vod 파일 재생 (e.g. http://192.168.10.179/vod/bunny.m3u8)
+2. 3번 메뉴를 선택하면 원본 영상 파일로 스트리밍 시작
+3. 4번 메뉴를 선택하면 원본 영상을 m3u8 파일로 변환하여 ~/vod 폴더에 저장
+4. 5번 메뉴를 선택하면 ffmpeg과 nginx 삭제
+5. 6번 메뉴를 선택하면 프로그램 중지
+6. http://[서버 아이피 주소]/vod/[파일 이름] 으로 vlc에서 네트워크 스트림 지정하면 vod 파일 재생
+
+  (e.g. http://192.168.10.179/vod/bunny.m3u8)
 
 [OBS 설정]
 -----
