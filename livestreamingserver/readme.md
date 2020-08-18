@@ -23,7 +23,7 @@ Live Streaming Server Using NGINX
 6. http://[서버 아이피 주소]/vod/[파일 이름] 으로 vlc에서 네트워크 스트림 지정하면 vod 파일 재생
 <pre>
 <code>
-(e.g. http://192.168.10.179/vod/bunny.m3u8)
+http://192.168.10.179/vod/bunny.m3u8
 </code>
 </pre>
 
@@ -33,7 +33,8 @@ Live Streaming Server Using NGINX
 1. OBS 실행
 2. File-> Settings-> Stream 으로 이동
 3. Service를 Custom으로 변경
-4. Server를 rtmp://[서버 아이피 주소]/[하위주소] 로 변경 (e.g. rtmp://localhost/live)
+4. Server를 rtmp://[서버 아이피 주소]/[하위주소] 로 변경
+<pre><code>rtmp://localhost/live</pre></code>
 5. Stream Key를 임의로 설정(e.g. test)
 
 
