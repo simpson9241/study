@@ -9,6 +9,8 @@ Live Streaming Server Using NGINX
 3. livestream.sh 파일이 있는 livestreamingserver 폴더 경로에서 sh livestream.sh 명령어를 실행 후 1번 메뉴를 선택해 ffmpeg과 nginx를 설치
 <pre><code>sh livestream.sh</code></pre>
 
+/etc/nginx 폴더에 있는 nginx.conf 파일에서 특정 경로들을 변경해서 설정 필요(hls_path, location /vod/ 의 root)
+
 
 [실행]
 -----
