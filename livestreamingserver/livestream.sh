@@ -10,7 +10,7 @@ do
 	if [ $n -eq 1 ]
 	then
 		sh install.sh;
-		sh config_nginx.sh;
+		sh nginx_config.sh;
 		echo "Install and Configuration Complete"
 	elif [ $n -eq 2 ]
 	then

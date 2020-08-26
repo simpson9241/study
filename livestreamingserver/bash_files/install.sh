@@ -134,7 +134,3 @@ sudo make install;
 
 mkdir ~/vod;
 sudo chmod 777 ~/vod;
-
-sudo chmod 777 /etc/nginx/nginx.conf;
-sudo cat /etc/nginx/nginx.conf configure.txt > /etc/nginx/nginx.conf;
-
