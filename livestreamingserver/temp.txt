@@ -1,1 +1,0 @@
-vlc http://192.168.10.179/vod/bunny.m3u8

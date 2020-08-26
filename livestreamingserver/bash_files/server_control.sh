@@ -8,13 +8,16 @@ do
 	read i
 	if [ $i -eq 1 ]
 	then
-		sh start_nginx.sh;
+		cd /etc/nginx/;
+		sudo nginx;
 	elif [ $i -eq 2 ]
 	then
-		sh restart_nginx.sh;
+		cd /etc/nginx
+		sudo nginx -s reload;
 	elif [ $i -eq 3 ]
 	then
-		sh stop_nginx.sh;
+		cd /etc/nginx;
+		sudo nginx -s stop;
 	elif [ $i -gt 4 -o $i -lt 1 ]
 	then
 		echo "Invalid Input!"

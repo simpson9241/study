@@ -20,7 +20,7 @@ do
 		sh stream.sh;
 	elif [ $n -eq 4 ]
 	then
-		sh hls.sh;
+		sh make_vod.sh;
 	elif [ $n -eq 5 ]
 	then
 		sh uninstall.sh;
