@@ -95,9 +95,9 @@ Live Streaming Server Using NGINX
         + ~/vod 파일 생성
 - server_control.sh
     * 서버를 시작, 재시작, 정지할 수 있도록 서버를 컨트롤하는 쉘 스크립트
-        + 1번 메뉴를 선택한 경우 start_nginx.sh 파일을 실행하여 nginx 서버를 시작
-        + 2번 메뉴를 선택한 경우 restart_nginx.sh 파일을 실행하여 nginx 서버를 재시작
-        + 3번 메뉴를 선택한 경우 stop_nginx.sh 파일을 실행하여 nginx 서버를 정지
+        + 1번 메뉴를 선택한 경우 nginx 서버를 시작
+        + 2번 메뉴를 선택한 경우 nginx 서버를 재시작
+        + 3번 메뉴를 선택한 경우 nginx 서버를 정지
         + 4번 메뉴를 선택한 경우 쉘 스크립트 종료
         + 1, 2, 3, 4 외 다른 입력을 한 경우 "Invalid Input!"을 출력  
 - stream.sh
