@@ -1,5 +1,4 @@
 #! /bin/bash
-cd bash_files/;
 n=0
 
 function install(){
