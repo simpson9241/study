@@ -1,0 +1,22 @@
+Draft
+
+기존 페이지에 Get Throttles 버튼 추가
+
+Get Throttles 버튼 누르면 Event 발생
+
+해당 기간의 Request ID로 AWS SDK를 통해 Request를 보내서 JSON을 받아옴
+
+Throttle 관련 지표(Metric)가 있는지 Request에서 받아온 JSON에서 확인
+
+만약 있다면 "Check 'request_id', 'request_id', ..." 식의 메시지를  Alert 형식으로 띄우기
+
+없으면 "No Throttles Found" 식의 메시지를 Alert 형식으로 띄우기
+
+MetricName( 지표 이름 )
+ex. Throttles
+
+Name( Col Title )
+ex. name
+
+Value ( 실제 테이블 이름 )
+ex. Request ID 값
