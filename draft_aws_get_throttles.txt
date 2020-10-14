@@ -1,4 +1,6 @@
 기존 페이지에 Get Throttles 버튼 추가
+- 시간 범위 지정
+- location 값으로 해당 request_id가 유효한지 확인해야 함 (ch903, ch 901 등)
 
 Get Throttles 버튼 누르면 Event 발생
 
