@@ -16,3 +16,7 @@ Flow
 - JSP (?)
 
 JSTL (?)
+
+Java Spring Boot 사용
+
+API로 JS BLOB을 받아오고 스트림을 JAVA로 전달해서 file stream 저장 후 사용
