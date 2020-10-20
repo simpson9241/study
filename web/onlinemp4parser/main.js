@@ -1,3 +1,4 @@
+import {ByteArrayToNum} from './util.js';
 function previewImage(f){
   var file=f.files;
 
@@ -21,8 +22,21 @@ function previewVideo(f){
     // console.log(rst.target.result);
     let base64result=rst.target.result.split(',')[1];
     let decodedresult=atob(base64result);
-    console.log(decodedresult);
+    console.log(typeof(decodedresult));
+    // console.log(decodedresult);
+    parseVideo(decodedresult);
   }
 
   reader.readAsDataURL(file[0]);
+}
+
+function parseVideo(decodedString){
+  var size=[];
+  for(var i=0;i<4;++i){
+    var code=decodedString.charCodeAt(i);
+    size=size.concat([code]);
+  }
+  console.log(size.join(', '));
+  let size_num=ByteArrayToNum(size);
+  console.log(size_num);
 }
