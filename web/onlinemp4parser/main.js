@@ -1,4 +1,5 @@
-import {ByteArrayToNum} from './util.js';
+// import {ByteArrayToNum} from './util.js';
+// 해당 디렉토리에서 npx http-server -c-1
 function previewImage(f){
   var file=f.files;
 
