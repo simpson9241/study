@@ -6,22 +6,24 @@
   </head>
   <body>
     <script src="main.js" charset="utf-8"></script>
-    <div id="source_input">
-      <div id="image_input" style="float:left">
-        <h3>Image Preview</h3>
-        <input type="file" id="file-selector" onchange="previewImage(this)"/>
+    <div>
+      <div id="source_input">
+        <div id="image_input" style="float:left">
+          <h3>Image Preview</h3>
+          <input type="file" id="file-selector" onchange="previewImage(this)"/>
+        </div>
+        <div id="video_input" style="float:left">
+          <h3>Video Preview</h3>
+          <input type="file" id="file-selector" onchange="previewVideo(this)"/>
+        </div>
       </div>
-      <div id="video_input" style="float:left">
-        <h3>Video Preview</h3>
-        <input type="file" id="file-selector" onchange="previewVideo(this)"/>
-      </div>
-    </div>
-    <div id="preview">
-      <div id="image_show">
+      <div id="preview">
+        <div id="image_show">
 
-      </div>
-      <div id="video_show">
+        </div>
+        <div id="video_show">
 
+        </div>
       </div>
     </div>
   </body>
