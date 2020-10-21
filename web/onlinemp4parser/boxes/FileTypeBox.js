@@ -1,4 +1,4 @@
-function setFTYP(size,type,input_stream) {
+function setFTYP(size,type,input_stream,original_length) {
   let ftyp={
     struct_depth:0,
     size:size,
@@ -7,7 +7,9 @@ function setFTYP(size,type,input_stream) {
     usertype:0,
     major_brand:'0',
     minor_version:0,
-    compatible_brands:[]
+    compatible_brands:[],
+    start_position:original_length-input_stream.length-8,
+    end_position:original_length-input_stream.length+size-8
   }
   ftyp.major_brand=input_stream.slice(0,4);
   input_stream=input_stream.slice(4,);
