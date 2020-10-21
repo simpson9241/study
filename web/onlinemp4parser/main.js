@@ -23,7 +23,7 @@ function previewVideo(f){
     // console.log(rst.target.result);
     let base64result=rst.target.result.split(',')[1];
     let decodedresult=atob(base64result);
-    console.log(typeof(decodedresult));
+    // console.log(typeof(decodedresult));
     // console.log(decodedresult);
     parseVideo(decodedresult);
   }
@@ -32,12 +32,8 @@ function previewVideo(f){
 }
 
 function parseVideo(decodedString){
-  var size=[];
-  for(var i=0;i<4;++i){
-    var code=decodedString.charCodeAt(i);
-    size=size.concat([code]);
+  let input_stream=decodedString;
+  while (input_stream.length>0) {
+    input_stream=readBox(input_stream);
   }
-  console.log(size.join(', '));
-  let size_num=ByteArrayToNum(size);
-  console.log(size_num);
 }
