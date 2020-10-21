@@ -33,7 +33,5 @@ function previewVideo(f){
 
 function parseVideo(decodedString){
   let input_stream=decodedString;
-  while (input_stream.length>0) {
-    input_stream=readBox(input_stream);
-  }
+  readBox(input_stream);
 }
