@@ -1,9 +1,9 @@
 // import {ByteArrayToNum} from './util.js';
 // 해당 디렉토리에서 npx http-server -c-1
 function previewImage(f){
-  var file=f.files;
+  let file=f.files;
 
-  var reader = new FileReader();
+  let reader = new FileReader();
 
   reader.onload=function(rst){
     document.getElementById('image_show').innerHTML='<img src="'+rst.target.result+'">';
@@ -14,9 +14,9 @@ function previewImage(f){
 }
 
 function previewVideo(f){
-  var file=f.files;
+  let file=f.files;
 
-  var reader = new FileReader();
+  let reader = new FileReader();
 
   reader.onload=function(rst){
     document.getElementById('video_show').innerHTML='<video autoplay controls loop muted preload="none">'+'<source src="'+rst.target.result+'" type="video/mp4">'+'Error'+'</video>';

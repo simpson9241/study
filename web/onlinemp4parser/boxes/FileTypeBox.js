@@ -19,7 +19,7 @@ function setFTYP(size,type,input_stream) {
   for(let i=0;i<compatible_brands_temp.length/4;i++){
     ftyp.compatible_brands.push(compatible_brands_temp.slice(i*4,i*4+4));
   }
-  input_stream=input_stream.slice(size-16,);
+  // input_stream=input_stream.slice(size-16,);
   return ftyp;
 }
 

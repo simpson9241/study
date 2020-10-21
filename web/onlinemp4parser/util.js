@@ -1,5 +1,5 @@
 function readBoxInfo(input_stream,boxes){
-  var size_byte=[];
+  let size_byte=[];
   size_byte=ReadByte(4,input_stream);
   let size=ByteArrayToNum(size_byte);
 
