@@ -19,5 +19,6 @@ function readBox(input_stream) {
   let type=input_stream.slice(0,4);
   console.log(type);
   input_stream=input_stream.slice(size_num-4,);
+  
   return input_stream;
 }
