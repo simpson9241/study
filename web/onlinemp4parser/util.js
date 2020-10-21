@@ -2,14 +2,16 @@ function readBoxInfo(input_stream,boxes){
   var size_byte=[];
   size_byte=ReadByte(4,input_stream);
   let size=ByteArrayToNum(size_byte);
-  // console.log(size_num);
+
   input_stream=input_stream.slice(4,);
-  // console.log(input_stream);
+
   let type=input_stream.slice(0,4);
-  // console.log(type);
   input_stream=input_stream.slice(4,);
+
   input_stream=chooseBox(size,type,input_stream,boxes);
+
   input_stream=input_stream.slice(size-8,);
+
   return input_stream;
 }
 
@@ -26,8 +28,7 @@ function chooseBox(size,type,input_stream,boxes){
   }
 }
 
-function readBox(input_stream) {
-  let boxes=[];
+function readBox(input_stream,boxes) {
   while(input_stream.length>0){
     input_stream=readBoxInfo(input_stream,boxes);
   }

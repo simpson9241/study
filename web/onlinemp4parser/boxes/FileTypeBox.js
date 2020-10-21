@@ -22,6 +22,7 @@ function setFTYP(size,type,input_stream) {
   input_stream=input_stream.slice(size-16,);
   return ftyp;
 }
+
 function printFTYP(ftyp) {
   console.log("ftyp");
   console.log("Size: "+ftyp.size);
