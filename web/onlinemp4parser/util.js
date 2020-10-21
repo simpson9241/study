@@ -1,9 +1,6 @@
 function readBoxInfo(input_stream,boxes){
   var size_byte=[];
-  for(var i=0;i<4;++i){
-    var code=input_stream.charCodeAt(i);
-    size_byte=size_byte.concat([code]);
-  }
+  size_byte=ReadByte(4,input_stream);
   let size=ByteArrayToNum(size_byte);
   // console.log(size_num);
   input_stream=input_stream.slice(4,);
