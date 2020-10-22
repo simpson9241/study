@@ -1,4 +1,4 @@
-function setFTYP(size,type,input_stream,original_length) {
+function setFTYP(size,type,input_stream,original_length,boxes) {
   let ftyp={
     struct_depth:0,
     size:size,

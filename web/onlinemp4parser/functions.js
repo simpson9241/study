@@ -13,3 +13,12 @@ function ReadByte(num,input_stream){
   }
   return byte_array;
 }
+
+function SetStructDepth(boxes,box){
+  for(let i=boxes.length-1;i>=0;i--){
+    if(boxes[i].end_position>box.start_position){
+      box.struct_depth=boxes[i].struct_depth+1;
+      return;
+    }
+  }
+}

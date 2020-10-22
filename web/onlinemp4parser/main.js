@@ -15,20 +15,29 @@ function previewImage(f){
 
 function previewVideo(f){
   let file=f.files;
-
-  let reader = new FileReader();
-
-  reader.onload=function(rst){
-    document.getElementById('video_show').innerHTML='<video autoplay controls loop muted preload="none">'+'<source src="'+rst.target.result+'" type="video/mp4">'+'Error'+'</video>';
-    // console.log(rst.target.result);
-    let base64result=rst.target.result.split(',')[1];
-    let decodedresult=atob(base64result);
-    // console.log(typeof(decodedresult));
-    // console.log(decodedresult);
-    parseVideo(decodedresult);
+  let fileBlob=file[0];
+  let url=(URL||webkitURL).createObjectURL(fileBlob);
+  // let video_display_reader = new FileReader();
+  let video_parse_reader=new FileReader();
+  document.getElementById('video_show').innerHTML='<video autoplay controls loop muted preload="none">'+'<source src="'+url+'" type="video/mp4">'+'Error'+'</video>';
+  // video_display_reader.onload=function(rst){
+  //   document.getElementById('video_show').innerHTML='<video autoplay controls loop muted preload="none">'+'<source src="'+rst.target.result+'" type="video/mp4">'+'Error'+'</video>';
+  //   console.log(rst.target.result);
+  //   let base64result=rst.target.result.split(',')[1];
+  //   let decodedresult=atob(base64result);
+  //   console.log(typeof(decodedresult));
+  //   console.log(decodedresult);
+  //   parseVideo(decodedresult);
+  // }
+  video_parse_reader.onload=function(rst){
+    console.log(rst.target.result);;
+    console.log(typeof(rst.target.result));
+    // parseVideo(decodedresult);
   }
-
-  reader.readAsDataURL(file[0]);
+  console.log(fileBlob);
+  // video_display_reader.readAsDataURL(file[0]);
+  video_parse_reader.readAsArrayBuffer(fileBlob);
+  // reader.readAsDataURL(file[0]);
 }
 
 function parseVideo(decodedString){

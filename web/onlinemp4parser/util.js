@@ -17,9 +17,14 @@ function readBoxInfo(input_stream,boxes,original_length){
 
 function chooseBox(size,type,input_stream,boxes,original_length){
   if(type=="ftyp"){
-    let ftyp=setFTYP(size,type,input_stream,original_length);
+    let ftyp=setFTYP(size,type,input_stream,original_length,boxes);
     boxes.push(ftyp);
     printFTYP(ftyp);
+    return input_stream;
+  }else if(type=="free"){
+    let free=setFREE(size,type,input_stream,original_length,boxes);
+    boxes.push(free);
+    // printFREE(free);
     return input_stream;
   }else{
     console.log("type: "+type);
