@@ -17,22 +17,17 @@ function previewVideo(f){
   let file=f.files;
   let fileBlob=file[0];
   let url=(URL||webkitURL).createObjectURL(fileBlob);
-  // let video_display_reader = new FileReader();
   let video_parse_reader=new FileReader();
   document.getElementById('video_show').innerHTML='<video autoplay controls loop muted preload="none">'+'<source src="'+url+'" type="video/mp4">'+'Error'+'</video>';
-  // video_display_reader.onload=function(rst){
-  //   document.getElementById('video_show').innerHTML='<video autoplay controls loop muted preload="none">'+'<source src="'+rst.target.result+'" type="video/mp4">'+'Error'+'</video>';
-  //   console.log(rst.target.result);
-  //   let base64result=rst.target.result.split(',')[1];
-  //   let decodedresult=atob(base64result);
-  //   console.log(typeof(decodedresult));
-  //   console.log(decodedresult);
-  //   parseVideo(decodedresult);
-  // }
+
   video_parse_reader.onload=function(rst){
-    console.log(rst.target.result);;
-    console.log(typeof(rst.target.result));
-    // parseVideo(decodedresult);
+    let data=rst.target.result;
+    let array=new Uint8Array(data);
+    console.log(data);
+    console.log(array);
+    // console.log(rst.target.result);;
+    // console.log(typeof(rst.target.result));
+    parseVideo(array);
   }
   console.log(fileBlob);
   // video_display_reader.readAsDataURL(file[0]);
@@ -40,8 +35,8 @@ function previewVideo(f){
   // reader.readAsDataURL(file[0]);
 }
 
-function parseVideo(decodedString){
-  let input_stream=decodedString;
+function parseVideo(array){
+  let input_stream=array;
   let boxes=[];
   readBox(input_stream,boxes);
 }

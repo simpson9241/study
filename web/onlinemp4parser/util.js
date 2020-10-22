@@ -1,11 +1,13 @@
 function readBoxInfo(input_stream,boxes,original_length){
   let size_byte=[];
-  size_byte=ReadByte(4,input_stream);
+  // size_byte=ReadByte(4,input_stream);
+  size_byte=input_stream.slice(0,4);
   let size=ByteArrayToNum(size_byte);
 
   input_stream=input_stream.slice(4,);
 
-  let type=input_stream.slice(0,4);
+  let type_array=input_stream.slice(0,4);
+  let type=String.fromCharCode.apply(null,new Uint16Array(type_array));
   input_stream=input_stream.slice(4,);
 
   input_stream=chooseBox(size,type,input_stream,boxes,original_length);
@@ -24,7 +26,7 @@ function chooseBox(size,type,input_stream,boxes,original_length){
   }else if(type=="free"){
     let free=setFREE(size,type,input_stream,original_length,boxes);
     boxes.push(free);
-    // printFREE(free);
+    printFREE(free);
     return input_stream;
   }else{
     console.log("type: "+type);

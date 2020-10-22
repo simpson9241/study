@@ -11,15 +11,19 @@ function setFTYP(size,type,input_stream,original_length,boxes) {
     start_position:original_length-input_stream.length-8,
     end_position:original_length-input_stream.length+size-8
   }
-  ftyp.major_brand=input_stream.slice(0,4);
+  let major_brand_array=input_stream.slice(0,4);
+  ftyp.major_brand=String.fromCharCode.apply(null,new Uint16Array(major_brand_array));
+  // ftyp.major_brand=input_stream.slice(0,4);
   input_stream=input_stream.slice(4,);
-  let minor_version_byte=[];
-  minor_version_byte=ReadByte(4,input_stream);
-  ftyp.minor_version=ByteArrayToNum(minor_version_byte);
+  let minor_version_array=[];
+  // minor_version_byte=ReadByte(4,input_stream);
+  minor_version_array=input_stream.slice(0,4);
+  ftyp.minor_version=ByteArrayToNum(minor_version_array);
   input_stream=input_stream.slice(4,);
   let compatible_brands_temp=input_stream.slice(0,size-16);
   for(let i=0;i<compatible_brands_temp.length/4;i++){
-    ftyp.compatible_brands.push(compatible_brands_temp.slice(i*4,i*4+4));
+    ftyp.compatible_brands.push(String.fromCharCode.apply(null,new Uint16Array(compatible_brands_temp.slice(i*4,i*4+4))));
+
   }
   // input_stream=input_stream.slice(size-16,);
   return ftyp;

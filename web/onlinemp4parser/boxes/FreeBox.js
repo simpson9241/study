@@ -10,3 +10,9 @@ function setFREE(size,type,input_stream,original_length,boxes){
   SetStructDepth(boxes,free);
   return free;
 }
+
+function printFREE(free){
+  console.log("free");
+  console.log("Size: "+free.size);
+  console.log("Type: "+free.type);
+}
