@@ -18,5 +18,8 @@ for file in file_list:
         video_flag_temp=mime_type.split('/')
         video_flag=video_flag_temp[0]
         if video_flag=='video':
-            writer.writerow([file])
+            file_dir=file
+            file_temp=file.split('/')
+            file_name=file_temp[-1]
+            writer.writerow([file_dir,file_name])
 
